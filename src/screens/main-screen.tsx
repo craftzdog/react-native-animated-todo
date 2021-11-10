@@ -1,8 +1,14 @@
-import * as React from 'react'
+import React, { useCallback, useState } from 'react'
+import { Pressable } from 'react-native'
 import { Text, Box, Center, VStack, useColorModeValue } from 'native-base'
 import ThemeToggle from '../components/theme-toggle'
+import TaskItem from '../components/task-item'
 
 export default function MainScreen() {
+  const [checked, setChecked] = useState(false)
+  const handlePressCheckbox = useCallback(() => {
+    setChecked(prev => !prev)
+  }, [])
   return (
     <Center
       _dark={{ bg: 'blueGray.900' }}
@@ -11,9 +17,7 @@ export default function MainScreen() {
       flex={1}
     >
       <VStack space={5} alignItems="center">
-        <Box p={10} bg={useColorModeValue('red.500', 'yellow.500')}>
-          <Text>Hello</Text>
-        </Box>
+        <TaskItem isDone={checked} onToggleCheckbox={handlePressCheckbox} />
         <ThemeToggle />
       </VStack>
     </Center>
