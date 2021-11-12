@@ -1,6 +1,21 @@
 {
   "name": "animated-todo",
+  "description": "A smoothly animated ToDo app built with React Native",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craftzdog/react-native-animated-todo.git"
+  },
+  "author": {
+    "name": "Takuya Matsuyama",
+    "url": "https://www.craftz.dog/"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "tutorial",
+    "todo"
+  ],
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
