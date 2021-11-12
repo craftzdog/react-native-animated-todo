@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@expo/webpack-config": "^0.16.7",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
     "prettier": "^2.4.1",
