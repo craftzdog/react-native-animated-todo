@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Box, useTheme, themeTools } from 'native-base'
+import { Box, useToken } from 'native-base'
 import usePrevious from '../utils/use-previous'
 import Animated, {
   useSharedValue,
@@ -11,8 +11,7 @@ import Animated, {
 const AnimatedBox = Animated.createAnimatedComponent(Box)
 
 const AnimatedColorBox = ({ bg, ...props }: any) => {
-  const theme = useTheme()
-  const hexBg = themeTools.getColor(theme, bg)
+  const hexBg = useToken('colors', bg)
   const prevHexBg = usePrevious(hexBg)
   const progress = useSharedValue(0)
 

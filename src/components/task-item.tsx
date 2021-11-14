@@ -1,18 +1,14 @@
 import React, { useCallback } from 'react'
 import { PanGestureHandlerProps } from 'react-native-gesture-handler'
+import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native'
 import {
   Pressable,
-  NativeSyntheticEvent,
-  TextInputChangeEventData
-} from 'react-native'
-import {
   Box,
   HStack,
-  useTheme,
-  themeTools,
   useColorModeValue,
   Icon,
-  Input
+  Input,
+  useToken
 } from 'native-base'
 import AnimatedCheckbox from 'react-native-checkbox-reanimated'
 import AnimatedTaskLabel from './animated-task-label'
@@ -43,25 +39,23 @@ const TaskItem = (props: Props) => {
     simultaneousHandlers
   } = props
 
-  const theme = useTheme()
-  const highlightColor = themeTools.getColor(
-    theme,
+  const highlightColor = useToken(
+    'colors',
     useColorModeValue('blue.500', 'blue.400')
   )
-  const boxStroke = themeTools.getColor(
-    theme,
+  const boxStroke = useToken(
+    'colors',
     useColorModeValue('muted.300', 'muted.500')
   )
-  const checkmarkColor = themeTools.getColor(
-    theme,
-    useColorModeValue('white', 'white')
-  )
-  const activeTextColor = themeTools.getColor(
-    theme,
+
+  const checkmarkColor = useToken('colors', useColorModeValue('white', 'white'))
+
+  const activeTextColor = useToken(
+    'colors',
     useColorModeValue('darkText', 'lightText')
   )
-  const doneTextColor = themeTools.getColor(
-    theme,
+  const doneTextColor = useToken(
+    'colors',
     useColorModeValue('muted.400', 'muted.600')
   )
 
