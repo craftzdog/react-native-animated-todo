@@ -14,7 +14,7 @@ import {
   Icon,
   Input
 } from 'native-base'
-import AnimatedCheckbox from './animated-checkbox'
+import AnimatedCheckbox from 'react-native-checkbox-reanimated'
 import AnimatedTaskLabel from './animated-task-label'
 import SwipableView from './swipable-view'
 import { Feather } from '@expo/vector-icons'
