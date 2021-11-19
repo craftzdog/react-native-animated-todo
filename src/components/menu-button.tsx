@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon, useColorModeValue, IButtonProps } from 'native-base'
+import { Button, Icon, IButtonProps } from 'native-base'
 import { Feather } from '@expo/vector-icons'
 
 interface Props extends IButtonProps {
@@ -9,21 +9,28 @@ interface Props extends IButtonProps {
 }
 
 const MenuButton = ({ active, icon, children, ...props }: Props) => {
-  const colorScheme = useColorModeValue('blue', 'darkBlue')
-  const inactiveTextColor = useColorModeValue('blue.500', undefined)
-  const pressedBgColor = useColorModeValue('primary.100', 'primary.600')
-
   return (
     <Button
       size="lg"
-      colorScheme={colorScheme}
+      _light={{
+        colorScheme: 'blue',
+        _pressed: {
+          bg: 'primary.100'
+        },
+        _text: {
+          color: active ? 'blue.50' : 'blue.500'
+        }
+      }}
+      _dark={{
+        colorScheme: 'darkBlue',
+        _pressed: {
+          bg: 'primary.600'
+        },
+        _text: {
+          color: active ? 'blue.50' : undefined
+        }
+      }}
       bg={active ? undefined : 'transparent'}
-      _pressed={{
-        bg: pressedBgColor
-      }}
-      _text={{
-        color: active ? 'blue.50' : inactiveTextColor
-      }}
       variant="solid"
       justifyContent="flex-start"
       leftIcon={<Icon as={Feather} name={icon} size="sm" opacity={0.5} />}

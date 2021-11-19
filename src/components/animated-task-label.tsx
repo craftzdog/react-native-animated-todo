@@ -1,6 +1,5 @@
 import React, { useEffect, memo } from 'react'
-import { Pressable } from 'react-native'
-import { Text, HStack, Box } from 'native-base'
+import { Pressable, Text, HStack, Box } from 'native-base'
 import Animated, {
   Easing,
   useSharedValue,
