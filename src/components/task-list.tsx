@@ -5,10 +5,10 @@ import {
   ScrollView
 } from 'react-native-gesture-handler'
 import TaskItem from './task-item'
-import { Factory } from 'native-base'
+import { makeStyledComponent } from '../utils/styled'
 
-const NativeBaseStyledView = Factory(View)
-const NativeBaseStyledScrollView = Factory(ScrollView)
+const StyledView = makeStyledComponent(View)
+const StyledScrollView = makeStyledComponent(ScrollView)
 
 interface TaskItemData {
   id: string
@@ -67,7 +67,7 @@ export const AnimatedTaskItem = (props: TaskItemProps) => {
     onRemove(data)
   }, [data, onRemove])
   return (
-    <NativeBaseStyledView
+    <StyledView
       w="full"
       from={{
         opacity: 0,
@@ -96,7 +96,7 @@ export const AnimatedTaskItem = (props: TaskItemProps) => {
         onPressLabel={handlePressLabel}
         onRemove={handleRemove}
       />
-    </NativeBaseStyledView>
+    </StyledView>
   )
 }
 
@@ -113,7 +113,7 @@ export default function TaskList(props: TaskListProps) {
   const refScrollView = useRef(null)
 
   return (
-    <NativeBaseStyledScrollView ref={refScrollView} w="full">
+    <StyledScrollView ref={refScrollView} w="full">
       <AnimatePresence>
         {data.map(item => (
           <AnimatedTaskItem
@@ -129,6 +129,6 @@ export default function TaskList(props: TaskListProps) {
           />
         ))}
       </AnimatePresence>
-    </NativeBaseStyledScrollView>
+    </StyledScrollView>
   )
 }
